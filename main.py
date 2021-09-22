@@ -7,8 +7,16 @@ import os
 path = 'text_files'
 today = date.today()
 # open a (new) file to write
-createFile = open(os.path.join(path, f'{today}.txt'), "w")
-createFile.close()
+# check if file exists
+ifExists = os.path.isfile(f'text_files/{today}.txt')
+if ifExists == False:
+    createFile = open(os.path.join(path, f'{today}.txt'), "w")
+    createFile.close()
+else:
+    print("File already exists")
+
+
+
 
 # open a read and append version so I can compare and add new headlines
 readFile = open(os.path.join(path, f'{today}.txt'), "r")
