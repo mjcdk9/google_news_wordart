@@ -1,3 +1,5 @@
 .idea
 .DStore
 .DS_Store
+.RData
+.Rhistory
