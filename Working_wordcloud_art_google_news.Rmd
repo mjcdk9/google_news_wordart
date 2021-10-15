@@ -1,0 +1,115 @@
+---
+title: "Google news"
+author: "Hunter Miller"
+date: "9/17/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+
+Loading all of the necessary packages
+```{r cars}
+library(shiny)
+library(rsconnect)
+library(tm)
+library(rvest)
+library(htmltools)
+library(wordcloud)
+library(RColorBrewer)
+library(wordcloud2)
+library(Rcpp)
+library(devtools)
+install_github("EriqLaplus/discordr")
+library(discordr)
+```
+
+
+Read the html and show the structure.
+```{r pressure, echo=FALSE}
+google_news_url <- "https://news.google.com/topstories?hl=en-US&gl=US&ceid=US:en"
+html_read <- read_html(google_news_url)
+
+str(html_read)
+html_read
+```
+Reads and shows the body nodes
+```{r}
+body_nodes <- html_read %>%
+  html_node("body") %>%
+  html_children()
+
+body_nodes
+```
+
+
+Reads and shows the child nodes
+```{r}
+body_nodes %>%
+  html_children()
+```
+
+
+Pulls the data from news.google.com
+```{r}
+headline <- html_read %>% 
+  rvest::html_nodes('body') %>% 
+  xml2::xml_find_all("//a[contains(@class, 'DY5T1d RZIKme')]") %>% 
+  rvest::html_text()
+headline
+```
+
+
+Creates the dataframe shows
+```{r}
+news_df <- matrix(headline)
+news_df
+```
+
+cleaning data
+```{r}
+#wordcloud(news_df,scale=c(4,.5), max.words=30)
+
+wordcloud(news_df,scale=c(3,1),min.freq=3,max.words=Inf,
+	random.order=FALSE, random.color=FALSE, rot.per=0,
+	col = brewer.pal(10,"Dark2"),ordered.colors=FALSE,use.r.layout=TRUE,
+	fixed.asp=FALSE)
+```
+
+
+
+
+Trying to create the wordcloud
+```{r}
+bullshit <-wordcloud(news_df,scale=c(4,1),min.freq=2,max.words=Inf,
+	random.order=FALSE, random.color=FALSE, rot.per=0,
+	col = brewer.pal(10, "Blues"),ordered.colors=FALSE,use.r.layout=TRUE,
+	fixed.asp=FALSE)
+```
+
+
+```{r}
+send_webhook <- create_discord_connection(webhook = 'https://discord.com/api/webhooks/884865571282386984/F7Kg4x8_TmHE4DzsXwhNJ77evrJcjrHFnLTP4f5zgzqUt-zzXolqtv0UzMvPkkRTJx80', username = 'The News', set_default = TRUE)
+
+
+png(filename="daily_news.png", width = 8, height = 5, units = "in", res = 500)
+
+wordcloud(news_df,scale=c(4,1),min.freq=2,max.words=Inf,
+	random.order=FALSE, random.color=FALSE, rot.per=0,
+	col = brewer.pal(9, "Blues"),ordered.colors=FALSE,use.r.layout=TRUE,
+	fixed.asp=FALSE)
+
+dev.off()
+
+#send_webhook_file("daily_news.png")
+```
+
+
+
+
