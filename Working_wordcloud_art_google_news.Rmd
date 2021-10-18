@@ -95,7 +95,7 @@ bullshit <-wordcloud(news_df,scale=c(4,1),min.freq=2,max.words=Inf,
 
 
 ```{r}
-send_webhook <- create_discord_connection(webhook = 'https://discord.com/api/webhooks/884865571282386984/F7Kg4x8_TmHE4DzsXwhNJ77evrJcjrHFnLTP4f5zgzqUt-zzXolqtv0UzMvPkkRTJx80', username = 'The News', set_default = TRUE)
+send_webhook <- create_discord_connection(webhook = 'enter_webhook', username = 'The News', set_default = TRUE)
 
 
 png(filename="daily_news.png", width = 8, height = 5, units = "in", res = 500)
