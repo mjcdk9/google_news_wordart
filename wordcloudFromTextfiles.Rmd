@@ -1,0 +1,108 @@
+---
+title: "wordcloud from textfiles"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(shiny)
+library(rsconnect)
+library(tm)
+library(rvest)
+library(htmltools)
+library(wordcloud)
+library(RColorBrewer)
+library(wordcloud2)
+library(Rcpp)
+library(devtools)
+install_github("EriqLaplus/discordr")
+library(discordr)
+library(wordcloud2)
+```
+
+
+```{r}
+df <- read.delim("/Users/markchafin/Desktop/google_news_wordart/text_files/2021-12-19.txt")
+dim(df)
+df <- as.character(df)
+df <- tolower(df)
+```
+
+```{r}
+
+stopwords = c("nbc",
+              "cnn",
+              "cbs",
+              "news",
+              "york",
+              "times",
+              "new",
+              "news",
+              "ars",
+              "abc",
+              "npr",
+              "fox",
+              "espn",
+              "x96")
+
+x <- unlist(strsplit(df, " "))
+
+x <- x[!x %in% stopwords]
+
+
+```
+
+
+```{r}
+set.seed(123)
+wordcloud(words = x, min.freq = 5, max.words=100, random.order=FALSE, rot.per=0.35, colors=brewer.pal(8, "Dark2"))
+```
+
+```{r}
+wordcloud2(data=df, size=1.6, color='random-dark')
+```
+
+
+
+cleaning data
+```{r}
+#wordcloud(news_df,scale=c(4,.5), max.words=30)
+
+wordcloud(df,scale=c(3,1),min.freq=3,max.words=Inf,
+	random.order=FALSE, random.color=FALSE, rot.per=0,
+	col = brewer.pal(10,"Dark2"),ordered.colors=FALSE,use.r.layout=TRUE,
+	fixed.asp=FALSE)
+```
+
+
+
+
+Trying to create the wordcloud
+```{r}
+bullshit <-wordcloud(df,scale=c(4,1),min.freq=2,max.words=Inf,
+	random.order=FALSE, random.color=FALSE, rot.per=0,
+	col = brewer.pal(10, "Blues"),ordered.colors=FALSE,use.r.layout=TRUE,
+	fixed.asp=FALSE)
+```
+
+
+```{r}
+send_webhook <- create_discord_connection(webhook = 'enter_webhook', username = 'The News', set_default = TRUE)
+
+
+png(filename="daily_news.png", width = 8, height = 5, units = "in", res = 500)
+
+wordcloud(news_df,scale=c(4,1),min.freq=2,max.words=Inf,
+	random.order=FALSE, random.color=FALSE, rot.per=0,
+	col = brewer.pal(9, "Blues"),ordered.colors=FALSE,use.r.layout=TRUE,
+	fixed.asp=FALSE)
+
+dev.off()
+
+#send_webhook_file("daily_news.png")
+```
+
+
