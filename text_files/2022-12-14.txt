@@ -94,3 +94,33 @@ Messi leads rout of Croatia as Argentina reach World Cup final - NBC Sports
 Ukraine war live updates: Blasts rock Kyiv as drones attack the capital; Belarus watched for signs it's preparing for war - CNBC
 The New Day bask in NXT glory: WWE NXT, Dec. 13, 2022 - WWE
 Mississippi State football coach Mike Leach dies - WAPT Jackson
+<<<<<<< HEAD
+=======
+Top Energy Department official no longer employed after luggage theft accusations - CNN
+FTX's Sam Bankman-Fried Charged With Criminal Fraud, Conspiracy - The Wall Street Journal
+Fed Looms After Rally Fades; Tesla Dives As Musk Admits This - Investor's Business Daily
+'Tough times': Warnings sound over China's rapid 'zero-COVID' exit - Reuters
+Biodiversity: Can we set aside a third of our planet for nature? - BBC
+Apple fixes ‘actively exploited’ zero-day security vulnerability affecting most iPhones - TechCrunch
+Fire Erupts at an NYPD Evidence Center in Brooklyn - The New York Times
+Samuel Bankman-Fried accused of making illegal campaign contributions - NBC News
+‘Air-raid’ coach Mike Leach had a thing for Key West. But he didn’t get his dream job - Miami Herald
+Tornadoes tear through swaths of north Texas and southern Oklahoma - NBC News
+US lawmakers introduce bill to ban TikTok - CNN
+Stock futures muted as investors await Wednesday's Federal Reserve rate decision - CNBC
+Why America's inflation cooldown might be here to stay - Axios
+A massive storm brings tornadoes to the South and a blizzard threat to central U.S. - NPR
+UK inflation falls from 41-year high as fuel price surge eases - CNBC
+National Treasure: Edge Of History review: Series puts a breezy spin on the franchise - Yahoo Entertainment
+Live news: Fashion chain Inditex posts sales jump as inflation drives up costs - Financial Times
+Long Covid Has Played Role in More Than 3,500 Deaths in US, CDC Says - The New York Times
+A look at the rise in migrants at the border as Title 42's future remains unclear - ABC News
+2022 World Cup: Argentina reach final, France against Morocco, Wednesday's best bets - ESPN
+The Love Horoscope For Each Zodiac Sign On Wednesday, December 14, 2022 - YourTango
+Morocco on the verge of World Cup final but face toughest test against France - CNN
+Geminids: When and how to watch the sky's brightest meteor shower - BBC
+Increased heart failure deaths linked to extreme hot and cold: study - CTV News
+Pentagon preparing to send Patriot missile system to Ukraine - The Washington Post
+Fed likely to slow interest rate hikes at final meeting of the year - Fox Business
+XEL Is Officially The Worst Switch Game Of 2022, According To Metacritic - Nintendo Life
+>>>>>>> 424fa05c0709e0e553ea34471c70eefe529c2f6d
